@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Add User</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+</head>
+
+
+<body>
+
+
+  <div class="container">
+
+
+    <h1>
+      User Management
+    </h1>
+
+
+    <!-- ========================= -->
+    <!-- ADD USER FORM -->
+    <!-- ========================= -->
+
+    <div class="card">
+
+
+      <h2>
+        Add User
+      </h2>
+
+
+      <form
+        id="userForm"
+        enctype="multipart/form-data"
+      >
+
+
+        <label>
+          Name
+        </label>
+
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Enter name"
+          required
+        >
+
+
+        <label>
+          Email
+        </label>
+
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter email"
+          required
+        >
+
+
+        <label>
+          Password
+        </label>
+
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Minimum 6 characters"
+          required
+        >
+
+
+        <label>
+          Upload Images
+          <span>(Maximum 4)</span>
+        </label>
+
+        <input
+          type="file"
+          id="images"
+          name="images"
+          accept="image/*"
+          multiple
+        >
+
+
+        <!-- Image Preview -->
+
+        <div id="preview"></div>
+
+
+        <div class="buttons">
+
+
+          <button
+            type="submit"
+          >
+            Add User
+          </button>
+
+
+          <button
+            type="reset"
+          >
+            Reset
+          </button>
+
+
+        </div>
+
+
+      </form>
+
+
+      <br>
+
+
+      <a href="show.html">
+
+        <button type="button">
+          Show All Users
+        </button>
+
+      </a>
+
+
+    </div>
+
+
+  </div>
+
+
+  <script src="script.js"></script>
+
+
+</body>
+
+</html>

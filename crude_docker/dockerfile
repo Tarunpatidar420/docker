@@ -1,0 +1,28 @@
+FROM --platform=linux/amd64 node:20
+# Base image select karta hai
+# linux/amd64 architecture ke Node image ko use karega
+
+ENV MONGO_DB_USERNAME=tarun \
+    MONGO_DB_PWD=tarun2805
+# Environment variables set karta hai
+
+RUN mkdir -p /deltadir/nodeapp
+# Container ke andar application folder create karta hai
+
+WORKDIR /deltadir/nodeapp
+# Ab ye application ka working directory hai
+
+COPY . .
+# Host ka project code container me copy karega
+
+RUN npm install
+# package.json ke according dependencies install karega
+
+EXPOSE 5500
+# Container ka application port
+
+CMD ["node", "index.js"]
+# Container start hote hi index.js run karega
+
+# Build:
+# docker build -t nodeapp:1.0 .
