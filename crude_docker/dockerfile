@@ -1,28 +1,49 @@
+# Node.js 20 ki base image use karo
+# linux/amd64 = Linux environment + 64-bit Intel/AMD architecture
 FROM --platform=linux/amd64 node:20
-# Base image select karta hai
-# linux/amd64 architecture ke Node image ko use karega
 
+
+# Environment variables create karo
+# MONGO_DB_USERNAME = MongoDB ka username "tarun"
+# MONGO_DB_PWD = MongoDB ka password "tarun2805"
+# PWD ka matlab = Password
 ENV MONGO_DB_USERNAME=tarun \
     MONGO_DB_PWD=tarun2805
-# Environment variables set karta hai
 
+
+# Container ke andar /deltadir/nodeapp folder create karo
+# -p = parent folder agar nahi hai to wo bhi create karo
 RUN mkdir -p /deltadir/nodeapp
-# Container ke andar application folder create karta hai
 
+
+# /deltadir/nodeapp ko working/current directory banao
+# Aage ki commands isi directory ke andar execute hongi
 WORKDIR /deltadir/nodeapp
-# Ab ye application ka working directory hai
 
+
+# Host ke current project ka pura code
+# Container ke /deltadir/nodeapp folder mein copy karo
 COPY . .
-# Host ka project code container me copy karega
 
+
+# package.json ke according Node.js dependencies install karo
 RUN npm install
-# package.json ke according dependencies install karega
 
+
+# Application container ke andar port 5500 par chalegi
+# EXPOSE sirf port ko document karta hai
 EXPOSE 5500
-# Container ka application port
 
+
+# Container start hote hi index.js file run karo
+# Matlab: node index.js
 CMD ["node", "index.js"]
-# Container start hote hi index.js run karega
 
-# Build:
+
+# Docker image build karne ka command
+# -t = image ko naam aur tag do
+# nodeapp = image ka naam
+# 1.0 = image ka version/tag
+# . = current folder ko build context use karo
+#
 # docker build -t nodeapp:1.0 .
